@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.ejemplo.ejemplo.Models.ModeloEjemplo;
 import com.ejemplo.ejemplo.Services.ServicioEjemplo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,12 @@ public class Controlador{
     @PutMapping("/caca/{id}")
     public ModeloEjemplo actualizarEjemplo(@RequestBody ModeloEjemplo ejemplo2, @PathVariable String id){
         return ejemplo.actualizarEjem(ejemplo2, id);
+    }
+
+    @DeleteMapping("/caca/{id}")
+    public String borrarEjemplo(@PathVariable String id){
+        ejemplo.eliminarEjem(id);
+        return "elimina3 papu";
+
     }
 }

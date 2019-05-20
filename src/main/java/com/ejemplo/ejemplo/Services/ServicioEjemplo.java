@@ -49,4 +49,14 @@ public class ServicioEjemplo{
         }
         return lista.get(objetivo);
     }
+
+    public void eliminarEjem(String id){
+        int largo = lista.size();
+        for(int i=0;i<largo;i++){
+            if(lista.get(i).getId().equals(id)){
+                lista.remove(i);
+                i=i+largo;
+            }
+        }
+    }
 }
