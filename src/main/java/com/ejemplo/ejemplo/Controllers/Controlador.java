@@ -23,12 +23,19 @@ public class Controlador{
     public ArrayList<ModeloEjemplo> caca() { 
         return ejemplo.getLista();
     }
-    @GetMapping("/caca/{id}")
+
+    @GetMapping("/caca/{id}") //path variable es pa indicar que id es el parametro de este metodo
     public ModeloEjemplo obtener(@PathVariable String id){
         return ejemplo.buscar(id);
     }
+
     @PostMapping("/caca") //con request body spring espera un json asi que ojo ahí
     public void agregarEjemplo(@RequestBody ModeloEjemplo ejemplo2){
         ejemplo.agregarElem(ejemplo2);
+    }
+
+    @PutMapping("/caca/{id}")
+    public ModeloEjemplo actualizarEjemplo(@RequestBody ModeloEjemplo ejemplo2, @PathVariable String id){
+        return ejemplo.actualizarEjem(ejemplo2, id);
     }
 }

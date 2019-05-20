@@ -36,4 +36,17 @@ public class ServicioEjemplo{
         lista.add(ejemplo);
     }
 
+    public ModeloEjemplo actualizarEjem(ModeloEjemplo ejemplo, String id){
+        int largo = lista.size();
+        int objetivo=0;
+        for(int i=0;i<largo;i++){
+            if(lista.get(i).getId().equals(id)){
+                objetivo=i;
+                lista.get(i).setId(ejemplo.getId());
+                lista.get(i).setNombre(ejemplo.getNombre());
+                i=i+largo;
+            }
+        }
+        return lista.get(objetivo);
+    }
 }
